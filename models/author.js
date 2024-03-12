@@ -11,7 +11,7 @@ var AuthorSchema = new Schema(
   }
 );
 
-// Virtual for author's full name
+// Virtual for author's full name (derived values)
 AuthorSchema
 .virtual('name')
 .get(function () {
@@ -28,7 +28,16 @@ AuthorSchema
 });
 
 // Virtual for author's lifespan
-AuthorSchema.virtual('lifespan').get(function() {});
+AuthorSchema.virtual('lifespan').get(function() {
+    var lifespan = '';
+    if (this.date_of_birth && this.date_of_death) {
+        lifespan = this.date_of_birth + '-' + this.date_of_death
+    }
+    if (!this.date_of_birth || !this.date_of_death) {
+        lifespan = '';
+    }
+    return lifespan;
+});
 
 //Export model
 module.exports = mongoose.model('Author', AuthorSchema);

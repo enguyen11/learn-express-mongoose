@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 
 console.log(
-  'This script populates some test books, authors, genres and bookinstances to your database. Specified database as argument - e.g.: node populatedb "mongodb://127.0.0.1:27017/my_library_db"'
+  'This script populates some test books, authors, genres and bookinstances to your database. ' +
+    'Specified database as argument - e.g.: node populatedb "mongodb://127.0.0.1:27017/my_library_db"'
 );
 
 // Get arguments passed on command line
