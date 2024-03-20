@@ -3,8 +3,8 @@ let Author = require('../models/author');
 
 function get_books () {
   return Book.find({}, 'title author')
-    .sort({title : 1})  // 1 indictes ascending order
-    .populate('author');
+    .sort({title : 1})  // 1 indicates ascending order
+    .populate('author');//Merge Books and Author because we are returning only the id otherwise
 }
 
 exports.show_books = async () => {
